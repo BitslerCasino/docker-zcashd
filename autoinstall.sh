@@ -98,7 +98,7 @@ echo
 echo "==========================="
 echo "==========================="
 echo "Installation Complete"
-echo "You can now run normal bchd-cli commands"
+echo "You can now run normal zec-cli commands"
 echo "Your configuration file is at $HOME/.zecdocker/zcash.conf"
 echo "If you wish to change it, make sure to restart zec-node"
 echo "IMPORTANT: To stop zec-node gracefully, use 'zec-cli stop' and wait for the container to stop to avoid corruption"
