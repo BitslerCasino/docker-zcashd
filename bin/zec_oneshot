@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -ex
+
+echo "Installation Complete!"
+
+if [ $# -gt 0 ]; then
+    args=("$@")
+fi
+
+zcash-fetch-params
+
+exec zcashd "${args[@]}"
