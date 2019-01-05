@@ -38,8 +38,8 @@ echo Installing ZCash Container
 
 docker volume create --name=zec-data
 docker run -v zec-data:/zcash --name=zec-node -d \
-      -p 8332:8332 \
-      -p 8333:8333 \
+      -p 8232:8232 \
+      -p 8233:8233 \
       -v $HOME/.zecdocker/zcash.conf:/zcash/.zcash/zcash.conf \
       bitsler/docker-zcashd:latest
 
@@ -61,8 +61,8 @@ sudo docker stop zec-node
 sudo docker rm zec-node
 sudo docker pull bitsler/docker-zcashd:latest
 docker run -v zec-data:/zcashd --name=zec-node -d \
-      -p 8332:8332 \
-      -p 8333:8333 \
+      -p 8232:8232 \
+      -p 8233:8233 \
       -v $HOME/.zecdocker/zcash.conf:/zcashd/.zcash/zcash.conf \
       bitsler/docker-zcashd:latest
 EOL

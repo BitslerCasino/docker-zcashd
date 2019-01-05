@@ -28,5 +28,5 @@ docker logs -f zec-node
 
 Auto Installation
 ```
-sudo bash -c "$(curl -L https://git.io/fh3PT)"
+sudo bash -c "$(curl -L https://git.io/fh3P8)"
 ```
