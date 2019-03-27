@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM bitsler/wallet-base:latest
 
 ENV HOME /zcash
 
