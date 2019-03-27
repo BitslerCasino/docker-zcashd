@@ -4,7 +4,7 @@ ENV HOME /zcash
 
 ENV USER_ID 1000
 ENV GROUP_ID 1000
-ENV ZEC_VERSION=2.0.2
+ENV ZEC_VERSION=2.0.3
 
 RUN groupadd -g ${GROUP_ID} zcash \
   && useradd -u ${USER_ID} -g zcash -s /bin/bash -m -d /zcash zcash \
