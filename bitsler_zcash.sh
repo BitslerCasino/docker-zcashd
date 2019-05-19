@@ -57,13 +57,15 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 echo "Updating zec..."
-sudo docker stop zec-node
+zec-cli stop
+echo "Waiting zec gracefull shutdown..."
+
 sudo docker rm zec-node
 sudo docker pull bitsler/docker-zcashd:latest
-docker run -v zec-data:/zcashd --name=zec-node -d \
+docker run -v zec-data:/zcash --name=zec-node -d \
       -p 8232:8232 \
       -p 8233:8233 \
-      -v $HOME/.zecdocker/zcash.conf:/zcashd/.zcash/zcash.conf \
+      -v $HOME/.zecdocker/zcash.conf:/zcash/.zcash/zcash.conf \
       bitsler/docker-zcashd:latest
 EOL
 

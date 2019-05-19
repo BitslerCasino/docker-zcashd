@@ -30,3 +30,11 @@ Auto Installation
 ```
 sudo bash -c "$(curl -L https://git.io/fh3P0)"
 ```
+
+Install the Auto-update
+
+- sudo bash -c "$(curl -L https://git.io/fjUFk)"
+
+Usage example
+
+- sudo zec-update v2.0.3
