@@ -28,13 +28,9 @@ docker logs -f zec-node
 
 Auto Installation
 ```
-sudo bash -c "$(curl -L https://git.io/fh3P0)"
+sudo bash -c "$(curl -L https://github.com/BitslerCasino/docker-zcashd/releases/download/v2.0.4/zcash_install.sh)"
 ```
-
-Install the Auto-update
-
-- sudo bash -c "$(curl -L https://git.io/fjUFk)"
-
-Usage example
-
-- sudo zec-update v2.0.3
+Install Utilities
+```
+sudo bash -c "$(curl -L https://github.com/BitslerCasino/docker-zcashd/releases/download/v2.0.4/zcash_utils.sh)"
+```
