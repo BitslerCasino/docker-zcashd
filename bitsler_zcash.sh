@@ -25,13 +25,12 @@ rpcuser=$rpcuser
 rpcpassword=$rpcpassword
 rpcport=8232
 rpcthreads=4
-dbcache=8000
+dbcache=4000
 par=0
 port=8233
 rpcallowip=127.0.0.1
 rpcallowip=$(curl -s https://canihazip.com/s)
 addnode=mainnet.z.cash
-printtoconsole=1
 EOL
 
 echo Installing ZCash Container
@@ -52,21 +51,29 @@ EOL
 
 cat >/usr/bin/zec-update <<'EOL'
 #!/usr/bin/env bash
+set -e
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be ran as root or sudo" 1>&2
    exit 1
 fi
-echo "Updating zec..."
-zec-cli stop
+VERSION="${1:-latest}"
+echo "Stopping zcash"
+sudo docker stop zec-node
 echo "Waiting zec gracefull shutdown..."
-
-sudo docker rm zec-node
-sudo docker pull bitsler/docker-zcashd:latest
-docker run -v zec-data:/zcash --name=zec-node -d \
+docker wait zec-node
+echo "Updating zec to $VERSION version..."
+docker pull bitsler/docker-zcashd:$VERSION
+echo "Removing old zec installation"
+docker rm zec-node
+echo "Running new zec-node container"
+docker run -v zec-data:/zcashd --name=zec-node -d \
       -p 8232:8232 \
       -p 8233:8233 \
-      -v $HOME/.zecdocker/zcash.conf:/zcash/.zcash/zcash.conf \
-      bitsler/docker-zcashd:latest
+      -v $HOME/.zecdocker/zcash.conf:/zcashd/.zcash/zcash.conf \
+      bitsler/docker-zcashd:$VERSION
+
+echo "Zcash successfully updated to $VERSION and started"
+echo ""
 EOL
 
 cat >/usr/bin/zec-rm <<'EOL'

@@ -2,7 +2,7 @@
 
 VERSION=$1
 
-if [ ! -z "$VERSION" ]; then
+if [ -z "$VERSION" ]; then
   echo "Missing version"
   exit;
 fi
