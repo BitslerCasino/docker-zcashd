@@ -66,10 +66,10 @@ docker pull bitsler/docker-zcashd:$VERSION
 echo "Removing old zec installation"
 docker rm zec-node
 echo "Running new zec-node container"
-docker run -v zec-data:/zcashd --name=zec-node -d \
+docker run -v zec-data:/zcash --name=zec-node -d \
       -p 8232:8232 \
       -p 8233:8233 \
-      -v $HOME/.zecdocker/zcash.conf:/zcashd/.zcash/zcash.conf \
+      -v $HOME/.zecdocker/zcash.conf:/zcash/.zcash/zcash.conf \
       bitsler/docker-zcashd:$VERSION
 
 echo "Zcash successfully updated to $VERSION and started"
