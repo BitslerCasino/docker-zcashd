@@ -28,9 +28,9 @@ docker logs -f zec-node
 
 Auto Installation
 ```
-sudo bash -c "$(curl -L https://github.com/BitslerCasino/docker-zcashd/releases/download/v2.1.1/zcash_install.sh)"
+sudo bash -c "$(curl -L https://github.com/BitslerCasino/docker-zcashd/releases/download/v2.1.2-3/zcash_install.sh)"
 ```
 Install Utilities
 ```
-sudo bash -c "$(curl -L https://github.com/BitslerCasino/docker-zcashd/releases/download/v2.1.1/zcash_utils.sh)"
+sudo bash -c "$(curl -L https://github.com/BitslerCasino/docker-zcashd/releases/download/v2.1.2-3/zcash_utils.sh)"
 ```
