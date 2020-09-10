@@ -10,9 +10,6 @@ RUN groupadd -g ${GROUP_ID} zcash \
   && set -x \
   && apt-get update -y \
   && apt-get install -y curl gosu \
-  build-essential pkg-config libc6-dev m4 g++-multilib \
-  autoconf libtool ncurses-dev unzip git python python-zmq \
-  zlib1g-dev wget curl bsdmainutils automake \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG version=2.1.2-3
