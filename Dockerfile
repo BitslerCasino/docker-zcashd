@@ -1,10 +1,9 @@
-FROM bitsler/wallet-base:latest
+FROM bitsler/wallet-base:focal
 
 ENV HOME /zcash
 
 ENV USER_ID 1000
 ENV GROUP_ID 1000
-ENV ZEC_VERSION=2.0.7-2
 
 RUN groupadd -g ${GROUP_ID} zcash \
   && useradd -u ${USER_ID} -g zcash -s /bin/bash -m -d /zcash zcash \
@@ -15,6 +14,9 @@ RUN groupadd -g ${GROUP_ID} zcash \
   autoconf libtool ncurses-dev unzip git python python-zmq \
   zlib1g-dev wget curl bsdmainutils automake \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ARG version=2.1.2-3
+ENV ZEC_VERSION=$version
 
 RUN curl -sL https://z.cash/downloads/zcash-$ZEC_VERSION-linux64-debian-stretch.tar.gz | tar xz --strip=2 -C /usr/local/bin
 
